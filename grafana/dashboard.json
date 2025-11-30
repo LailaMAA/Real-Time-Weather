@@ -1,0 +1,87 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "iteration": 1,
+  "links": [],
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Anomalies détectées",
+      "datasource": "PostgreSQL",
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" }
+        }
+      },
+      "targets": [
+        {
+          "format": "time_series",
+          "rawSql": "SELECT time, anomaly::int AS anomaly FROM weather ORDER BY time;",
+          "refId": "A"
+        }
+      ],
+      "gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 }
+    },
+    {
+      "type": "timeseries",
+      "title": "Vent",
+      "datasource": "PostgreSQL",
+      "targets": [
+        {
+          "format": "time_series",
+          "rawSql": "SELECT time, wind_speed FROM weather ORDER BY time;",
+          "refId": "B"
+        }
+      ],
+      "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 }
+    },
+    {
+      "type": "timeseries",
+      "title": "Température en temps réel",
+      "datasource": "PostgreSQL",
+      "targets": [
+        {
+          "format": "time_series",
+          "rawSql": "SELECT time, temp FROM weather ORDER BY time;",
+          "refId": "C"
+        }
+      ],
+      "gridPos": { "x": 0, "y": 8, "w": 12, "h": 8 }
+    },
+    {
+      "type": "timeseries",
+      "title": "Humidité & Pression",
+      "datasource": "PostgreSQL",
+      "targets": [
+        {
+          "format": "time_series",
+          "rawSql": "SELECT time, humidity FROM weather ORDER BY time;",
+          "refId": "D"
+        },
+        {
+          "format": "time_series",
+          "rawSql": "SELECT time, pressure FROM weather ORDER BY time;",
+          "refId": "E"
+        }
+      ],
+      "gridPos": { "x": 12, "y": 8, "w": 12, "h": 8 }
+    }
+  ],
+  "schemaVersion": 36,
+  "version": 1
+}
