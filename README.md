@@ -23,26 +23,24 @@ C’est un projet complet de **Data Engineering / Streaming / Machine Learning /
 Producer → Kafka → Consumer (Python) → PostgreSQL → Grafana
 
 # 📁 3. Structure du repository
-
 real-time-weather/
 │
-├── docker-compose.yml
-├── requirements.txt
-├── README.md
+├── docker-compose.yml          # Orchestration Docker
+├── requirements.txt            # Dépendances Python
+├── README.md                   # 📄 Ce fichier
 │
-├── producer.py
-├── consumer.py
+├── producer.py                 # Générateur de données
+├── consumer.py                 # Traitement + ML
 │
 ├── docker/
-│ ├── producer/Dockerfile
-│ └── consumer/Dockerfile
+│   ├── producer/Dockerfile
+│   └── consumer/Dockerfile
 │
 ├── sql/
-│ └── init.sql
+│   └── init.sql                # Schéma PostgreSQL
 │
 └── grafana/
-  └── dashboard.json
-
+    └── dashboard.json          # Dashboard prêt à importer
 
 ---
 
