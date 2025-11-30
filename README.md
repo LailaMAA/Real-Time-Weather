@@ -20,12 +20,15 @@ C’est un projet complet de **Data Engineering / Streaming / Machine Learning /
 
 # ⚙️ 2. Architecture du système
 
-```mermaid
-graph TD
-    A[📊 Producer<br/>Données météo] --> B[🕸️ Kafka<br/>Topic: weather-data]
-    B --> C[🐍 Consumer Python<br/>IsolationForest]
-    C --> D[🗄️ PostgreSQL<br/>weatherdb.weather]
-    D --> E[📈 Grafana<br/>Dashboard temps réel]
+## 🚀 Architecture
+
+**Kafka → Python → PostgreSQL → Grafana**
+
+1. **Producer** : Données météo (Python)
+2. **Kafka** : Topic `weather-data` 
+3. **Consumer** : IsolationForest (anomalies)
+4. **PostgreSQL** : Table `weather`
+5. **Grafana** : Dashboard temps réel
 
 # 📁 3. Structure du repository
 real-time-weather/
